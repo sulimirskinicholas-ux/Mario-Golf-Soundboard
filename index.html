@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Golf N64 Soundboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0b2b1a;
+      color: #ffffff;
+      text-align: center;
+      padding: 12px;
+    }
+
+    header {
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: #ffd166;
+      font-size: 1.5rem;
+      margin-bottom: 2px;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    p {
+      color: #a3b18a;
+      font-size: 0.8rem;
+    }
+
+    /* Container for character clusters */
+    .board-container {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Compact Character Section Card */
+    .character-section {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex: 1 1 100%; 
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Class for small clusters that can share a row */
+    .character-section.small-section {
+      flex: 1 1 calc(50% - 10px);
+      min-width: 140px;
+    }
+
+    /* Character & Logo Header Images */
+    .section-header-img {
+      height: 40px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      margin-bottom: 6px;
+      filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+    }
+
+    .narrator-logo-img {
+      height: 48px;
+      margin-bottom: 8px;
+    }
+
+    /* Mobile-First Compact Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+      gap: 6px;
+      width: 100%;
+    }
+
+    /* Fixed Equal-Sized Buttons */
+    .sound-btn {
+      height: 48px;
+      border-radius: 8px;
+      color: white;
+      padding: 4px 6px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.05s ease, filter 0.1s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.1;
+    }
+
+    .sound-btn:active {
+      transform: scale(0.92);
+      filter: brightness(1.25);
+    }
+
+    /* SPECIAL NEGATIVE / MISTAKE BUTTON STYLING */
+    .sound-btn.negative-btn {
+      color: #000000 !important;
+      font-weight: 900 !important;
+      border: 2px solid #000000 !important;
+      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* CHARACTER COLOR THEMES */
+    .theme-narrator .sound-btn {
+      background: linear-gradient(145deg, #e9c46a, #2a9d8f);
+      border-color: #f4a261;
+    }
+
+    .theme-mario .sound-btn {
+      background: linear-gradient(145deg, #e63946, #9b111e);
+      border-color: #ff8585;
+    }
+
+    .theme-wario .sound-btn {
+      background: linear-gradient(145deg, #d4a373, #7209b7);
+      border-color: #ffd166;
+    }
+
+    .theme-luigi .sound-btn {
+      background: linear-gradient(145deg, #2a9d8f, #1b4332);
+      border-color: #74c69d;
+    }
+
+    .theme-yoshi .sound-btn {
+      background: linear-gradient(145deg, #52b788, #2d6a4f);
+      border-color: #b7efc5;
+    }
+
+    .theme-babymario .sound-btn {
+      background: linear-gradient(145deg, #48cae4, #0077b6);
+      border-color: #90e0ef;
+    }
+
+    .theme-sunny .sound-btn {
+      background: linear-gradient(145deg, #f77f00, #d62828);
+      border-color: #fcbf49;
+    }
+
+    .theme-harry .sound-btn {
+      background: linear-gradient(145deg, #7209b7, #3a0ca3);
+      border-color: #f72585;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mario Golf Soundboard</h1>
+    <p>Tap any button to trigger character voicelines</p>
+  </header>
+
+  <main class="board-container">
+
+    <!-- FULL ROW: NARRATOR (MARIO GOLF LOGO) -->
+    <section class="character-section theme-narrator">
+      <img src="https://mario.wiki.gallery/images/f/f0/Logo_EN_-_Mario_Golf_%28N64_-_GBC%28.png" alt="Mario Golf Logo" class="section-header-img narrator-logo-img">
+      <div class="grid">
+        <button class="sound-btn" data-sound="sounds/nice_on_narrator.m4a">Nice On!</button>
+        <button class="sound-btn" data-sound="sounds/nice_touch_narrator.m4a">Nice Touch!</button>
+        <button class="sound-btn" data-sound="sounds/nice_approach_narrator.m4a">Nice Approach!</button>
+        <button class="sound-btn" data-sound="sounds/nice_birdie_narrator.m4a">Nice Birdie!</button>
+        
+        <button class="sound-btn negative-btn" data-sound="sounds/too_bad_narrator.m4a">Too Bad</button>
+        <button class="sound-btn negative-btn" data-sound="sounds/into_the_rough_narrator.m4a">Rough</button>
+        <button class="sound-btn negative-btn" data-sound="sounds/duffed_it_narrator.m4a">Duffed it...</button>
+        <button class="sound-btn negative-btn" data-sound="sounds/o_b_toad.m4a">Toad: O.B.</button>
+      </div>
+    </section>
+
+    <!-- FULL ROW: MARIO -->
+    <section class="character-section theme-mario">
+      <img src="https://mario.wiki.gallery/images/3/3e/MarioGolf64MarioRender.png" alt="Mario" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn negative-btn" data-sound="sounds/hmm_mario.m4a">Hmm...</button>
+        <button class="sound-btn" data-sound="sounds/Hurry_Up_Already_mario.m4a">Hurry Up!</button>
+        <button class="sound-btn" data-sound="sounds/mama_mia_mario.m4a">Mama Mia!</button>
+        <button class="sound-btn" data-sound="sounds/nice_shot_mario.m4a">Nice Shot!</button>
+        <button class="sound-btn" data-sound="sounds/whistle_mario.m4a">(Whistle)</button>
+      </div>
+    </section>
+
+    <!-- SHARED ROW: WARIO & LUIGI -->
+    <section class="character-section small-section theme-wario">
+      <img src="https://mario.wiki.gallery/images/c/c3/MarioGolf64WarioRender.png" alt="Wario" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn" data-sound="sounds/1_2_3_4_wario.m4a">1, 2, 3, Fore!</button>
+        <button class="sound-btn" data-sound="sounds/hurry_up_will_ya_wario.m4a">Hurry Up!</button>
+      </div>
+    </section>
+
+    <section class="character-section small-section theme-luigi">
+      <img src="https://mario.wiki.gallery/images/7/77/MarioGolf64LuigiRender.png" alt="Luigi" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn" data-sound="sounds/okie_dokie_lookout_luigi.m4a">Okie Dokie</button>
+      </div>
+    </section>
+
+    <!-- SHARED ROW: YOSHI & BABY MARIO -->
+    <section class="character-section small-section theme-yoshi">
+      <img src="https://mario.wiki.gallery/images/f/f6/MarioGolf64YoshiRender.png" alt="Yoshi" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn negative-btn" data-sound="sounds/sad_whistle_yoshi.m4a">(Sad Whistle)</button>
+      </div>
+    </section>
+
+    <section class="character-section small-section theme-babymario">
+      <img src="https://mario.wiki.gallery/images/2/2a/MarioGolf64BabyMarioRender.png" alt="Baby Mario" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn" data-sound="sounds/nice_shot_trumpets_babymario.m4a">Nice Shot</button>
+      </div>
+    </section>
+
+    <!-- SHARED ROW: SUNNY & HARRY -->
+    <section class="character-section small-section theme-sunny">
+      <img src="https://mario.wiki.gallery/images/0/00/Maplegolfing.png" alt="Sunny" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn" data-sound="sounds/fore_sunny.m4a">FORE!</button>
+        <button class="sound-btn" data-sound="sounds/its_a_sunny_day_sunny.m4a">Sunny Day!</button>
+      </div>
+    </section>
+
+    <section class="character-section small-section theme-harry">
+      <img src="https://mario.wiki.gallery/images/f/f3/FireMarioMG.png" alt="Harry" class="section-header-img">
+      <div class="grid">
+        <button class="sound-btn negative-btn" data-sound="sounds/oh_no_harry.m4a">Oh No...</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Cache for loaded audio objects to allow fast re-triggering
+    const audioCache = {};
+
+    document.querySelectorAll('.sound-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const soundSrc = button.getAttribute('data-sound');
+        
+        if (!soundSrc) return;
+
+        // If audio isn't cached yet, create new Audio object
+        if (!audioCache[soundSrc]) {
+          audioCache[soundSrc] = new Audio(soundSrc);
+        }
+
+        const sound = audioCache[soundSrc];
+        
+        // Reset playback to 0 so spamming the button restarts audio instantly
+        sound.currentTime = 0;
+        sound.play().catch(err => {
+          console.error("Audio failed to play:", err);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
