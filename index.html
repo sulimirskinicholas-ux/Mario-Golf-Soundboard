@@ -62,13 +62,27 @@
       min-width: 140px;
     }
 
+    /* Character Header Layout (Image + Text Label) */
+    .character-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .character-name {
+      font-size: 0.95rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
     /* Character & Logo Header Images */
     .section-header-img {
       height: 40px;
       width: auto;
       max-width: 100%;
       object-fit: contain;
-      margin-bottom: 6px;
       filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
     }
 
@@ -122,42 +136,49 @@
       box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.4) !important;
     }
 
-    /* CHARACTER COLOR THEMES */
+    /* CHARACTER COLOR THEMES & TEXT LABELS */
     .theme-narrator .sound-btn {
       background: linear-gradient(145deg, #e9c46a, #2a9d8f);
       border-color: #f4a261;
     }
 
+    .theme-mario .character-name { color: #ff4d4d; }
     .theme-mario .sound-btn {
       background: linear-gradient(145deg, #e63946, #9b111e);
       border-color: #ff8585;
     }
 
+    .theme-wario .character-name { color: #ffd166; }
     .theme-wario .sound-btn {
       background: linear-gradient(145deg, #d4a373, #7209b7);
       border-color: #ffd166;
     }
 
+    .theme-luigi .character-name { color: #52b788; }
     .theme-luigi .sound-btn {
       background: linear-gradient(145deg, #2a9d8f, #1b4332);
       border-color: #74c69d;
     }
 
+    .theme-yoshi .character-name { color: #76c893; }
     .theme-yoshi .sound-btn {
       background: linear-gradient(145deg, #52b788, #2d6a4f);
       border-color: #b7efc5;
     }
 
+    .theme-babymario .character-name { color: #4ea8de; }
     .theme-babymario .sound-btn {
       background: linear-gradient(145deg, #48cae4, #0077b6);
       border-color: #90e0ef;
     }
 
+    .theme-sunny .character-name { color: #f77f00; }
     .theme-sunny .sound-btn {
       background: linear-gradient(145deg, #f77f00, #d62828);
       border-color: #fcbf49;
     }
 
+    .theme-harry .character-name { color: #b5179e; }
     .theme-harry .sound-btn {
       background: linear-gradient(145deg, #7209b7, #3a0ca3);
       border-color: #f72585;
@@ -175,7 +196,7 @@
 
     <!-- FULL ROW: NARRATOR (MARIO GOLF LOGO) -->
     <section class="character-section theme-narrator">
-      <img src="https://static.wikia.nocookie.net/logopedia/images/2/2b/Mario_golf.png/revision/latest?cb=20210629031759" alt="Mario Golf Logo" class="section-header-img narrator-logo-img">
+      <img src="artwork/Mario Golf Logo.jpg" alt="Mario Golf Logo" class="section-header-img narrator-logo-img">
       <div class="grid">
         <button class="sound-btn" data-sound="sounds/nice_on_narrator.m4a">Nice On!</button>
         <button class="sound-btn" data-sound="sounds/nice_touch_narrator.m4a">Nice Touch!</button>
@@ -191,7 +212,10 @@
 
     <!-- FULL ROW: MARIO -->
     <section class="character-section theme-mario">
-      <img src="https://mario.wiki.gallery/images/3/3e/MarioGolf64MarioRender.png" alt="Mario" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Mario.jpg" alt="Mario" class="section-header-img">
+        <span class="character-name">Mario</span>
+      </div>
       <div class="grid">
         <button class="sound-btn negative-btn" data-sound="sounds/hmm_mario.m4a">Hmm...</button>
         <button class="sound-btn" data-sound="sounds/Hurry_Up_Already_mario.m4a">Hurry Up!</button>
@@ -203,7 +227,10 @@
 
     <!-- SHARED ROW: WARIO & LUIGI -->
     <section class="character-section small-section theme-wario">
-      <img src="https://mario.wiki.gallery/images/c/c3/MarioGolf64WarioRender.png" alt="Wario" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Wario.jpg" alt="Wario" class="section-header-img">
+        <span class="character-name">Wario</span>
+      </div>
       <div class="grid">
         <button class="sound-btn" data-sound="sounds/1_2_3_4_wario.m4a">1, 2, 3, Fore!</button>
         <button class="sound-btn" data-sound="sounds/hurry_up_will_ya_wario.m4a">Hurry Up!</button>
@@ -211,7 +238,10 @@
     </section>
 
     <section class="character-section small-section theme-luigi">
-      <img src="https://mario.wiki.gallery/images/7/77/MarioGolf64LuigiRender.png" alt="Luigi" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Luigi.jpg" alt="Luigi" class="section-header-img">
+        <span class="character-name">Luigi</span>
+      </div>
       <div class="grid">
         <button class="sound-btn" data-sound="sounds/okie_dokie_lookout_luigi.m4a">Okie Dokie</button>
       </div>
@@ -219,14 +249,20 @@
 
     <!-- SHARED ROW: YOSHI & BABY MARIO -->
     <section class="character-section small-section theme-yoshi">
-      <img src="https://mario.wiki.gallery/images/f/f6/MarioGolf64YoshiRender.png" alt="Yoshi" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Yoshi.jpg" alt="Yoshi" class="section-header-img">
+        <span class="character-name">Yoshi</span>
+      </div>
       <div class="grid">
         <button class="sound-btn negative-btn" data-sound="sounds/sad_whistle_yoshi.m4a">(Sad Whistle)</button>
       </div>
     </section>
 
     <section class="character-section small-section theme-babymario">
-      <img src="https://mario.wiki.gallery/images/2/2a/MarioGolf64BabyMarioRender.png" alt="Baby Mario" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Baby Mario.jpg" alt="Baby Mario" class="section-header-img">
+        <span class="character-name">Baby Mario</span>
+      </div>
       <div class="grid">
         <button class="sound-btn" data-sound="sounds/nice_shot_trumpets_babymario.m4a">Nice Shot</button>
       </div>
@@ -234,7 +270,10 @@
 
     <!-- SHARED ROW: SUNNY & HARRY -->
     <section class="character-section small-section theme-sunny">
-      <img src="https://mario.wiki.gallery/images/0/00/Maplegolfing.png" alt="Sunny" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Sunny.jpg" alt="Sunny" class="section-header-img">
+        <span class="character-name">Sunny</span>
+      </div>
       <div class="grid">
         <button class="sound-btn" data-sound="sounds/fore_sunny.m4a">FORE!</button>
         <button class="sound-btn" data-sound="sounds/its_a_sunny_day_sunny.m4a">Sunny Day!</button>
@@ -242,7 +281,10 @@
     </section>
 
     <section class="character-section small-section theme-harry">
-      <img src="https://mario.wiki.gallery/images/f/f3/FireMarioMG.png" alt="Harry" class="section-header-img">
+      <div class="character-header">
+        <img src="artwork/Harry.jpg" alt="Harry" class="section-header-img">
+        <span class="character-name">Harry</span>
+      </div>
       <div class="grid">
         <button class="sound-btn negative-btn" data-sound="sounds/oh_no_harry.m4a">Oh No...</button>
       </div>
